@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+	<div id="contaminantGraph">
+	</div>
+
+		<script type="text/javascript">
+
+           d3.csv("data/ContaminationSheet3.csv")
+          .then(function(data){
+			var contamination = data;
+			contamination = contamination.sort(function (a,b) {
+				return d3.ascending(parseFloat(a.Measure), parseFloat(b.Measure));
+			})
+
+				var margin = {top: 15, right: 25, bottom: 15, left: 60},
+					padding = {top: 60, right: 60, bottom: 60, left: 275},
+					outerWidth = 960,
+					outerHeight = 500,
+					innerWidth = outerWidth - margin.left - margin.right,
+					innerHeight = outerHeight - margin.top - margin.bottom,
+					width = innerWidth - padding.left - padding.right,
+					height = innerHeight - padding.top - padding.bottom;
+
+				var svg = d3.select("#contaminantGraph")
+						.append("svg")
+						.attr("width", outerWidth)
+						.attr("height", outerHeight)
+						.append("g")
+						.attr("transfrom", "translate(" + margin.left + "," + margin.top +")")
+
+				var xScale = d3.scaleLinear()
+					.domain([0, d3.max(contamination, function (d) {
+							return d.Measure;
+						})])
+					.range([0, width]);
+
+				var yScale = d3.scaleBand()
+						.domain(contamination.map(function (d) {
+							return d.Contaminant;
+						}))
+						.range([height, 0], .1);
+
+				var yAxis = d3.axisLeft(yScale)
+					   .tickSize(5);
+
+				var g = svg.append("g")
+					.attr("transform", "translate(" + padding.left + "," + padding.top + ")");
+					
+				g.append("g")
+					.attr("class", "y axis")					
+					.call(yAxis)
+
+				g.selectAll("rect")
+						.data(contamination)
+						.enter()
+						.append("rect")
+						.attr("y", function (d) {
+							return yScale(d.Contaminant)
+						})
+						.attr("height", yScale.bandwidth())
+						.attr("x", 0)
+						.attr("class", "bar")
+						.attr("width", function (d) {
+							return xScale(d.Measure)
+						});
+
+				g.selectAll("text.label")
+						.data(contamination)
+						.enter()
+						.append("text")
+						.attr("class", "label")
+						.attr("y", function (d) {
+							return yScale(d.Contaminant) + yScale.bandwidth() / 2 +4;
+						})
+						.attr("x", function (d) {
+							return xScale(d.Measure) + 3;
+						})
+						.text(function (d) {
+							return d.Measure
+						});
+		})
+
+		</script>	

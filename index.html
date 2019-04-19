@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Scrolling Nav - Start Bootstrap Template</title>
+  <title>HoTaMaLe Presents: What's in the Water?</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -16,7 +16,14 @@
   <!-- Custom styles for this template -->
   <link href="css/scrolling-nav.css" rel="stylesheet">
   
-  
+    <style>
+        .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
+		.bar {fill: #5f89ad;}
+		.axis { font-size: 13px;}
+		.axis path { fill: none; display: none;}
+		.axis line { fill: none;}	
+		.label { font-size: 13px; }		
+    </style>
 
 </head>
 
@@ -25,29 +32,16 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">HoTaMale Presents</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">HoTaMaLe Presents</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-       <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>-->
     </div>
   </nav>
 
   <header class="bg-primary text-dark">
     <div class="container text-center">
-      <h1>What's in the Water</h1>
+      <h1>What's in the Water?</h1>
       <p class="lead"></p>
     </div>
   </header>
@@ -61,19 +55,12 @@
 		  <br>
 		  <br>
 		  PFOS was also used in paper, waxes, polishes, paints, varnishes, and cleaning products. In addition, PFOS has been a key ingredient in firefighting foam.</p>
-          <!--<ul>
-            <li>Clickable nav links that smooth scroll to page sections</li>
-            <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-            <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-            <li>Minimal custom CSS so you are free to explore your own unique design options</li>
-          </ul>-->
         </div>
 	   <div class="col-lg-8 mx-auto">
           <h2>GRAPH 1 GOES HERE</h2>
 		  
-
-		  <a href="html/testBar.html" id="" title="testBar">testBar</a>
-		  
+		  <div class="loadGraph" data-href="html/contaminant_bargraph.html">
+		  </div>
         </div>
       </div>
     </div>
@@ -92,10 +79,8 @@
         </div>
 		<div class="col-lg-8 mx-auto">
           <h2>GRAPH 2 GOES HERE</h2>
-		  
-		<a href="html/liquidFillGauge.html" id="" title="liquidFillGauge">liquidFillGauge</a>
-		  
-		  
+		  <div class="loadGraph" data-href="html/map.html">
+		  </div>
         </div>
       </div>
     </div>
@@ -138,7 +123,10 @@
 			</p>
         </div>
 		<div class="col-lg-8 mx-auto">
-          <h2>GRAPH 3 GOES HERE</h2>
+          <h2>GRAPH 3 GOES HERE</h2>	
+		  
+		  <div class="loadGraph" data-href="html/liquidFillGauge.html">
+		  </div>
         </div>
       </div>
     </div>
@@ -152,6 +140,10 @@
     <!-- /.container -->
   </footer>
 
+  <!-- Load d3.js -->
+  <script src="http://d3js.org/d3.v5.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -162,7 +154,11 @@
   <!-- Custom JavaScript for this theme -->
   <script src="js/scrolling-nav.js"></script>
   
- 
+  <!-- Custom JavaScript for loading graphs -->
+  <script src="js/graphs.js"></script>
+  
+  <!-- Custom JavaScript for fill gauges -->
+  <script src="js/liquidFillGauge.js"></script>
   
 </body>
 

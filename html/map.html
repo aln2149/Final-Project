@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<div id="mapDiv">
+</div>
+		<script type="text/javascript"> 
+
+        var geoUsPath = "data/gz_2010_us_040_00_20m_lower48.geojson";
+		var geoRemediationPath = "data/remediation.geojson";
+		// converted DEC Map csv to geojson using: http://www.convertcsv.com/csv-to-geojson.htm
+		var geoDecMap = "data/decmap.geojson";
+
+
+        Promise.all([d3.json(geoUsPath), d3.json(geoRemediationPath), d3.json(geoDecMap)]).then(function(data) {
+                var geoUsPath = data[0];
+                var geoRemediationPath = data[1];
+				var geoDecMap = data[2];
+       
+                var width = 960
+                var height = 800
+                var padding = 40
+                var svg = d3.select("#mapDiv").append("svg").attr("width",width).attr("height", height);       
+                
+                var projection = d3.geoAlbers()
+                        .fitExtent([[padding,padding],[width-padding,height-padding]],geoDecMap)
+                
+                drawOutline(geoUsPath,projection,svg,"black","white",.6)
+				drawOutline(geoRemediationPath,projection,svg,"yellow","black",1)
+                drawDots(geoDecMap,projection,svg)
+            });
+            
+            function drawOutline(geo,projection,svg,fill,stroke,opacity){
+                var padding = 50
+                var path = d3.geoPath().projection(projection);
+
+
+                svg.append("g")
+                .selectAll("path")
+                .data(geo.features)
+                .enter()
+                .append("path")
+                .attr("class",function(d){
+                    return "shape "+d.properties.postalCode
+                })
+                .attr("d",path)
+                .attr("fill",fill)
+                .attr("stroke",stroke)
+                .attr("opacity",opacity)                
+            }
+			
+            function drawDots(centroids,projection,svg){
+
+                svg.append("g").selectAll("circle")
+                	.data(centroids.features)
+                    .enter()
+                	.append("circle")
+                	.attr("r", 5)
+                    .attr('class',"centroids")
+                	.attr("cx", function(d) {
+                  	    return projection([d.geometry.coordinates[0],d.geometry.coordinates[1]])[0]
+                	})
+                	.attr("cy", function(d) {
+                  	    return projection([d.geometry.coordinates[0],d.geometry.coordinates[1]])[1]
+                	})					
+					.attr("fill","red")
+                	.attr("opacity", 1)
+            }
+</script>
