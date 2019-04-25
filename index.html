@@ -7,131 +7,236 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+  
   <title>HoTaMaLe Presents: What's in the Water?</title>
-
+  
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="css/scrolling-nav.css" rel="stylesheet">
+
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
   
     <style>
+		body { margin:0; padding:0; }
+		#map { position:absolute; top:0; bottom:0; width:100%; }
         .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
 		.bar {fill: #5f89ad;}
 		.axis { font-size: 13px;}
 		.axis path { fill: none; display: none;}
 		.axis line { fill: none;}	
-		.label { font-size: 13px; }		
+		.label { font-size: 13px; }	
+		header#top { background-image: url('img/header.png'); height: 413px; margin-bottom: 50px; }
+		header#top div { height: 100%; padding-top: 700px; }
+		.center {  margin: auto; width: 80%;}
     </style>
 
 </head>
 
 <body id="page-top">
 
+	
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">HoTaMaLe Presents</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">DataViz_2019_</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
   </nav>
 
-  <header class="bg-primary text-dark">
-    <div class="container text-center">
-      <h1>What's in the Water?</h1>
-      <p class="lead"></p>
+  <header id="top" class="bg-primary text-dark">
+    <div class="container text-center">	
     </div>
   </header>
+
+ <section id="intro">
+    <div class="container">
+	   <div class="row">
+         <div class="col-lg-12 text-dark">
+		
+			<p class = "lead">This project, undertaken through the Data Visualization course at GSAPP, was conceived as an addendum to the team’s Advanced IV Studio projects. The studio, sited in Newburgh, NY, focuses on ecological challenges in the area. 
+
+			Water safety in Newburgh has been a significant issue since 2014, when the New York State Department of Environmental Conservation discovered high levels of PFOS in the Newburgh water supply and reported it to the U.S. Environmental Protection Agency. This project seeks to make clear the known contaminants in natural water bodies in Newburgh, whether intended for drinking water or not, spatialize waterbody contamination in Newburgh, and convey the potential health risks of consuming contaminated water.
+			</p>
+		</div>
+	</div>
+  </section>
 
   <section id="about">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 mx-auto">
-          <h2>What are PFO's?</h2>
+          <h3>What are PFO's?</h3>
           <p class="lead">Perfluorooctanesulfonic acid (PFOS) is a chemical manufactured in the United States from about 1949 until its phase out began in about 2000. PFOS was the key ingredient in Scotchgard, a fabric protector made by 3M, and numerous stain repellents for clothing, upholstery, and carpets. 
 		  <br>
 		  <br>
 		  PFOS was also used in paper, waxes, polishes, paints, varnishes, and cleaning products. In addition, PFOS has been a key ingredient in firefighting foam.</p>
         </div>
 	   <div class="col-lg-8 mx-auto">
-          <h2>GRAPH 1 GOES HERE</h2>
-		  
-		  <div class="loadGraph" data-href="html/contaminant_bargraph.html">
+          <h2></h2>
+		  <div class="center">
+		  		<div id="title" class ="center">Contamination in the Newburgh, NY Water System</div>
+				<div id="subtitle" class="center">Amount of Contaminant / Legal Limit (ppb)</div>
+			</div>
+			
+		  <div class="loadGraph" data-href="html/contaminant_bargraph_FINAL.html">
 		  </div>
-        </div>
-      </div>
-    </div>
+     </div>
+	</div>
+	</div>
   </section>
 
   <section id="services" class="bg-light">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 mx-auto">
-          <h2>What are the health effects?</h2>
-          <p class="lead">The health effects of PFOS, PFOA, PFHxS, and PFNA have been more widely studied than other per- and polyfluoroalkyl substances (PFAS). Some, but not all, studies in humans with PFAS exposure have shown that certain PFAS may:
-		  affect growth, learning, and behavior of infants and older children lower a woman’s chance of getting pregnant interfere with the body’s natural hormones increase cholesterol levels affect the immune system increase the risk of cancer Scientists are still learning about the health effects of exposures to mixtures of PFAS.
-		  <br>
-		  <br>
-		  For the most part, laboratory animals exposed to high doses of one or more of these PFAS have shown changes in liver, thyroid, and pancreatic function, as well as some changes in hormone levels. Because animals and humans process these chemicals differently, more research will help scientists fully understand how PFAS affect human health.</p>
+          <h3>Where in Newburgh can you find these contaminants?</h3>
+		  </br>
+          <p class="lead">The New York State Department of Environmental Conservation (DEC) identified Stewart Air National Guard Base as a source of the PFOS contamination detected in the area and in the City of Newburgh public drinking water supply. DEC has continued to investigate other sources of contamination at Lake Washington, Brown’s Pond, the Quassaick Creek, and along the Hudson River. 
+		 </p>
         </div>
 		<div class="col-lg-8 mx-auto">
-          <h2>GRAPH 2 GOES HERE</h2>
-		  <div class="loadGraph" data-href="html/map.html">
+          <h2></h2>
+		  <div class="loadGraph" data-href="html/mapNew.html">
 		  </div>
         </div>
       </div>
     </div>
   </section>
+  
+  
+  <section id="intro">
+    <div class="container">
+	   <div class="row">
+         <div class="col-lg-12 text-dark">
+ 
+      <h3>Why you should be worried and what are the legal limits.</h3>
+      <p class="lead"></p>
 
-  <section id="contact">
+	         <p class="lead">The Newburgh water supply is no longer sourced from Lake Washington or Brown’s Pond, instead receiving water from the Catskill Aqueduct (a source of NYC water) since June 2016. However, Newburgh residents were exposed to elevated level of PFOS for a period of at least 3-4 years. The EPA had set a health advisory of 200 ppt of PFOS and 400 ppt of PFOA, but reduced the number to 70 ppt of PFOS in May 2016. 
+			</p>
+    </div>
+   <div class="col-lg-8 mx-auto">
+
+ </header>
+
+</section>
+
+  <section id="services" class="bg-light">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 mx-auto">
-          <h2>Find more information here.</h2>
-          <p class="lead">For specific questions about blood testing:
+          <h3>How this affect your health?</h3>
+          <p class="lead">The health effects of PFOS, PFOA, PFHxS, and PFNA have been more widely studied than other per- and polyfluoroalkyl substances (PFAS). Some, but not all, studies in humans with PFAS exposure have shown that certain PFAS may:
+			  <br>
+			  <br>
+			  affect child development (low birth weight, accelerated puberty, skeletal variations, behavior problems, learning disabilities), lower a woman’s chance of getting pregnant, interfere with the body’s natural hormones, increase cholesterol levels, affect the immune system, increase the risk of cancer (testicular, kidney). 
+		 </p>
+        </div>
+	<div class="col-lg-8 mx-auto">
+        <h2></h2>	
+	    <div class="loadGraph" data-href="html/liquidFillGauge.html">
+	  </div>
+	  </div>
+	  </div>
+	  </div>
+     
+</section>
 
-			&#9632; Email: beoe@health.ny.gov
+ <section id="contact" class="bg-light">
+	  <div class="container">
+    	<div class="row">
+         <div class="col-lg-6">
+          <h3>Find more information here</h3>
+          <p class="lead">For specific questions about blood testing and to participate in the biomonitoring program:
 			<br>
-			&#9632; ph: 518-402-7950 
+			Email: beoe@health.ny.gov
+			<br>
+			ph: 518-402-7950 
 			<br>
 			<br>
 			For specific questions about potential health effects of PFOS exposure:
 			<br>
-			&#9632;Email: btsa@health.ny.gov
+			Email: btsa@health.ny.gov
 			<br>
-			&#9632;ph: 518-402-7800 
+			ph: 518-402-7800 
 			<br>
 			<br>
 			For specific questions about the public water supply:
 			<br>
-			&#9632;Email: bpwsp@health.ny.gov
+			Email: bpwsp@health.ny.gov
 			<br>
-			&#9632;ph: 518-402-7650 
-			<br>
-			<br>
-			For specific questions about private wells:
-			<br>
-			&#9632;Email: beei@health.ny.gov
-			<br>
-			&#9632;ph: 518-402-7880 
+			ph: 518-402-7650 
 			<br>
 			<br>
-			Water Quality Hotline: 800-801-8092
+			Safe Drinking Water Hotline: 800-426-4791
 			</p>
         </div>
-		<div class="col-lg-8 mx-auto">
-          <h2>GRAPH 3 GOES HERE</h2>	
-		  
-		  <div class="loadGraph" data-href="html/liquidFillGauge.html">
-		  </div>
-        </div>
-      </div>
+	        <div class="col-lg-5 offset-lg-1">
+	          <h3>Take Action</h3>
+	          <p class="lead">Sean Patrick Maloney:
+				<br>
+				Representative (D-NY 18th District)
+				<br>
+				ph: 845-561-1259 
+				<br>
+				https://seanmaloney.house.gov/
+				<br>
+				<br>
+				EPA Region 1 Customer Service Line
+				<br>
+				ph:888-372-7341
+				<br>
+				<br>
+				Environmental Justice Hotline 
+				<br>
+				ph:800-962-6215
+				<br>
+				www.epa.gov/environmentaljustice
+				</p>
+		
     </div>
+	
   </section>
-
+  
+  <section id="sources" class="bg-light">
+	  <div class="container">
+       <div class="row">
+         <div class="col-lg-12">
+           <h3>Sources</h3>
+           <p class="lead">Pfas Health Effects
+ 			<br>
+ 			https://www.atsdr.cdc.gov/pfas/health-effects.html
+ 			<br>
+			<br>
+ 			Drinking Water Health Advisories
+			<br>
+			https://www.epa.gov/sites/production/files/2016-06/documents/drinkingwaterhealthadvisories_pfoa_pfos_updated_5.31.16.pdf
+ 			<br>
+			<br>
+			FAQ: City of Newburgh PFOS Contamination
+			<br>
+			https://www.health.ny.gov/environmental/investigations/newburgh/docs/faq.pdf
+ 			<br>
+			<br>
+			An Overview of Perfluoroalkyl and Polyfluoroalkyl Substances and Interim Guidance for Clinicians Responding to Patient Exposure Concerns
+			<br>
+			https://www.atsdr.cdc.gov/pfc/docs/pfas_clinician_fact_sheet_508.pdf
+			<br>
+			<br>
+			PFOS in Drinking Water in Newburgh Area
+			<br>
+			https://www.health.ny.gov/environmental/investigations/newburgh/index.htm
+				</p>
+		
+    </div>
+	
+	</section>
+	
+			
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
@@ -141,9 +246,12 @@
   </footer>
 
   <!-- Load d3.js -->
-  <script src="http://d3js.org/d3.v5.js"></script>
-  <script src="http://d3js.org/topojson.v1.min.js"></script>
-
+  <script src="https://d3js.org/d3.v5.js"></script>
+  <script src="https://d3js.org/topojson.v1.min.js"></script>
+  
+  <!-- Load MapBox JavaScript -->
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+  
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -158,8 +266,7 @@
   <script src="js/graphs.js"></script>
   
   <!-- Custom JavaScript for fill gauges -->
-  <script src="js/liquidFillGauge.js"></script>
-  
+  <script src="js/liquidFillGauge.js"></script>  
 </body>
 
 </html>
